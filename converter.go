@@ -47,6 +47,8 @@ func runConverter(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("error generating PDF report: %w", err)
 	}
 
+	fmt.Println("Done :)")
+
 	return nil
 }
 
