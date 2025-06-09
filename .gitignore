@@ -3,3 +3,4 @@ conversion_log.txt
 .idea
 conversion_report.pdf
 openshift-dc-migration
+.DS_Store
