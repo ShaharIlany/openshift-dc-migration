@@ -135,14 +135,8 @@ func preflightCheck(clientset *kubernetes.Clientset) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	// Check if we can list namespaces
-	_, err := clientset.CoreV1().Namespaces().List(ctx, metav1.ListOptions{Limit: 1})
-	if err != nil {
-		return fmt.Errorf("failed to connect to the OpenShift cluster: %w", err)
-	}
-
 	// Check if we can access the OpenShift API
-	_, err = clientset.Discovery().ServerVersion()
+	_, err := clientset.Discovery().ServerVersion()
 	if err != nil {
 		return fmt.Errorf("failed to access OpenShift API: %w", err)
 	}
